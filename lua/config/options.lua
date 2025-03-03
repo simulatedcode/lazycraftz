@@ -10,10 +10,6 @@ vim.o.foldlevel = 99 -- Avoid auto-folding everything
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
--- Use ufo for better folding experience
-vim.opt.foldmethod = "manual"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
 vim.opt.swapfile = false -- Disable swap files
 vim.opt.backup = false -- Disable backup files
 vim.opt.writebackup = false -- Prevent backups before writing
