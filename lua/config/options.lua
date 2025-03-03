@@ -69,6 +69,27 @@ end
 
 vim.opt.statuscolumn = "%!v:lua.require'snacks.statuscolumn'.get()"
 
-vim.keymap.set("n", "<leader>rn", function()
-  vim.opt.relativenumber = not vim.opt.relativenumber:get()
-end, { desc = "Toggle Relative Numbers" })
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
+-- Add asterisks in block comments
+vim.opt.formatoptions:append({ "r" })
+
+vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
+vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
+
+if vim.fn.has("nvim-0.8") == 1 then
+  vim.opt.cmdheight = 0
+end
+
+-- File types
+vim.filetype.add({
+  extension = {
+    mdx = "mdx",
+  },
+})
+
+vim.g.lazyvim_prettier_needs_config = true
+vim.g.lazyvim_picker = "telescope"
+vim.g.lazyvim_cmp = "blink.cmp"
